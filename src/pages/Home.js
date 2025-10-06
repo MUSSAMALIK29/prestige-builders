@@ -113,53 +113,58 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Reviews Section */}
-      <section id="reviews" className="reviews">
-        <h2>What Our Clients Say</h2>
-        <p>Trusted by homeowners, developers, and businesses alike.</p>
+    // Reviews Section in Home.js
+<section id="reviews" className="reviews">
+  <h2>What Our Clients Say</h2>
+  <p>Trusted by homeowners, developers, and businesses alike.</p>
 
-        <div className="review-container">
-          {reviews.map((r) => (
-            <div className="review-card" key={r.id}>
-              <div className="stars">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="star-icon" />
-                ))}
-              </div>
-              <p>“{r.text}”</p>
-              <h4>- {r.name}</h4>
-            </div>
+  <div className="review-container">
+    {reviews.map((r) => (
+      <div className="review-card" key={r.id}>
+        <div className="stars">
+          {[...Array(5)].map((_, i) => (
+            <Star key={i} className="star-icon" />
           ))}
         </div>
+        <p>“{r.text}”</p>
+        <h4>- {r.name}</h4>
+      </div>
+    ))}
+  </div>
 
-        <button
-          className="get-quote"
-          onClick={() => setShowForm(!showForm)}
-          style={{ marginTop: "20px" }}
-        >
-          Leave Us a Review
-        </button>
+  <button
+    className="get-quote"
+    onClick={() => setShowForm(!showForm)}
+    style={{ marginTop: "20px" }}
+  >
+    Leave Us a Review
+  </button>
 
-        {showForm && (
-          <form className="review-form" onSubmit={submitReview}>
-            <input
-              type="text"
-              placeholder="Your Name"
-              value={newReview.name}
-              onChange={(e) => setNewReview({ ...newReview, name: e.target.value })}
-              required
-            />
-            <textarea
-              placeholder="Your Review"
-              value={newReview.text}
-              onChange={(e) => setNewReview({ ...newReview, text: e.target.value })}
-              rows={4}
-              required
-            />
-            <button type="submit">Submit Review</button>
-          </form>
-        )}
-      </section>
+  {showForm && (
+    <form className="review-form" onSubmit={submitReview}>
+      <input
+        type="text"
+        placeholder="Your Name"
+        value={newReview.name}
+        onChange={(e) =>
+          setNewReview({ ...newReview, name: e.target.value })
+        }
+        required
+      />
+      <textarea
+        placeholder="Your Review"
+        value={newReview.text}
+        onChange={(e) =>
+          setNewReview({ ...newReview, text: e.target.value })
+        }
+        rows={4}
+        required
+      />
+      <button type="submit">Submit Review</button>
+    </form>
+  )}
+</section>
+
 
       {/* Contact Section */}
       <section id="contact" className="contact">
