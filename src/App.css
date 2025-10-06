@@ -137,6 +137,10 @@ html {
 
   .nav-links a {
     font-size: 0.9rem;
+  
   }
 }
 
+.nav-links{
+  margin-top: 15px;  
+  }

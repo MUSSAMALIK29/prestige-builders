@@ -229,3 +229,69 @@ body {
   .contact-form input, .contact-form textarea { padding: 12px; font-size: 0.9rem; }
   .contact-form button { padding: 12px 30px; font-size: 0.9rem; }
 }
+
+/* ===== REVIEW FORM ===== */
+.review-form {
+  max-width: 500px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.review-form input,
+.review-form textarea {
+  width: 100%;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+.review-form input:focus,
+.review-form textarea:focus {
+  border-color: #bfa67a;
+  box-shadow: 0 0 8px rgba(191, 166, 122, 0.4);
+  outline: none;
+}
+.review-form button {
+  background-color: #bfa67a;
+  color: #111;
+  padding: 15px 40px;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  transition: 0.3s;
+}
+.review-form button:hover {
+  background-color: #a88b60;
+  transform: translateY(-2px);
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .review-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .review-card {
+    width: 90%;
+    margin: 10px auto;
+  }
+  .review-form {
+    width: 90%;
+    padding: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .review-form input,
+  .review-form textarea {
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+  .review-form button {
+    padding: 12px 30px;
+    font-size: 0.9rem;
+  }
+}

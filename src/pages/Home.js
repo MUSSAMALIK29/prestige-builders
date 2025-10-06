@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Home.css";
 import { Construction, Business, HomeRepairService, Star } from "@mui/icons-material";
+import { db } from "./firebase";
+import { collection, addDoc, query, orderBy, onSnapshot, serverTimestamp } from "firebase/firestore";
 
 export default function Home() {
   // Smooth scroll function
@@ -27,6 +29,32 @@ export default function Home() {
       description: "Complete home renovation with modern design, smart layouts, and premium finishes."
     }
   ];
+
+  // Reviews state
+  const [reviews, setReviews] = useState([]);
+  const [showForm, setShowForm] = useState(false);
+  const [newReview, setNewReview] = useState({ name: "", text: "" });
+
+  // Fetch reviews in real-time
+  useEffect(() => {
+    const q = query(collection(db, "reviews"), orderBy("timestamp", "desc"));
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+      setReviews(snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
+    });
+    return unsubscribe;
+  }, []);
+
+  // Submit new review
+  const submitReview = async (e) => {
+    e.preventDefault();
+    if (!newReview.name || !newReview.text) return;
+    await addDoc(collection(db, "reviews"), {
+      ...newReview,
+      timestamp: serverTimestamp()
+    });
+    setNewReview({ name: "", text: "" });
+    setShowForm(false);
+  };
 
   return (
     <div>
@@ -85,26 +113,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* Reviews Section */}
       <section id="reviews" className="reviews">
         <h2>What Our Clients Say</h2>
         <p>Trusted by homeowners, developers, and businesses alike.</p>
+
         <div className="review-container">
-          {[
-            {
-              name: "Mohammed",
-              text: "Prestige Builders made our dream home a reality. The craftsmanship and attention to detail were outstanding.",
-            },
-            {
-              name: "Sarah Malik",
-              text: "Our office renovation was seamless. Professional team and top-quality work!",
-            },
-            {
-              name: "David Cook",
-              text: "Excellent service, timely delivery, and they truly care about quality.",
-            },
-          ].map((r, i) => (
-            <div className="review-card" key={i}>
+          {reviews.map((r) => (
+            <div className="review-card" key={r.id}>
               <div className="stars">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="star-icon" />
@@ -115,6 +131,34 @@ export default function Home() {
             </div>
           ))}
         </div>
+
+        <button
+          className="get-quote"
+          onClick={() => setShowForm(!showForm)}
+          style={{ marginTop: "20px" }}
+        >
+          Leave Us a Review
+        </button>
+
+        {showForm && (
+          <form className="review-form" onSubmit={submitReview}>
+            <input
+              type="text"
+              placeholder="Your Name"
+              value={newReview.name}
+              onChange={(e) => setNewReview({ ...newReview, name: e.target.value })}
+              required
+            />
+            <textarea
+              placeholder="Your Review"
+              value={newReview.text}
+              onChange={(e) => setNewReview({ ...newReview, text: e.target.value })}
+              rows={4}
+              required
+            />
+            <button type="submit">Submit Review</button>
+          </form>
+        )}
       </section>
 
       {/* Contact Section */}
@@ -125,7 +169,7 @@ export default function Home() {
         {/* Formspree Form */}
         <form
           className="contact-form"
-          action="https://formspree.io/f/mvgwqbqw" // Replace with your Formspree form ID
+          action="https://formspree.io/f/mvgwqbqw"
           method="POST"
         >
           <div className="form-group">
