@@ -1,5 +1,4 @@
-/* ===== EXISTING NAVBAR & FOOTER ===== */
-
+/* ===== GLOBAL NAVBAR & FOOTER ===== */
 html {
   scroll-behavior: smooth;
 }
@@ -23,16 +22,29 @@ html {
 }
 
 .nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   color: #333;
   font-weight: bold;
   font-size: 1.5rem;
   text-decoration: none;
 }
 
+.nav-brand img {
+  height: 45px; /* adjust logo size */
+  width: auto;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
 .nav-links a {
   color: #333;
   text-decoration: none;
-  margin-left: 20px;
   font-weight: 500;
   transition: 0.3s;
 }
@@ -51,7 +63,6 @@ html {
 }
 
 /* ===== HAMBURGER MENU ===== */
-
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -87,7 +98,7 @@ html {
 /* Tablets / Medium screens */
 @media (max-width: 1024px) {
   .nav-links a {
-    margin-left: 15px;
+    gap: 15px;
     font-size: 0.95rem;
   }
 }
@@ -95,17 +106,23 @@ html {
 /* Small screens / Mobile */
 @media (max-width: 768px) {
   .nav-container {
-    flex-direction: row;   /* Keep brand and hamburger inline */
+    flex-direction: row;
     align-items: center;
-    justify-content: space-between; /* Brand left, hamburger right */
-    gap: 0;
+    justify-content: space-between;
   }
 
   .nav-links {
-    display: none;
-    flex-direction: column;
+    position: absolute;
+    top: 65px; /* below navbar */
+    left: 0;
     width: 100%;
-    margin-top: 10px; /* Add small gap below navbar */
+    background: #fff;
+    flex-direction: column;
+    align-items: center;
+    display: none;
+    padding: 15px 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    z-index: 999;
   }
 
   .nav-links.active {
@@ -114,6 +131,7 @@ html {
 
   .nav-links a {
     margin: 10px 0;
+    font-size: 1rem;
   }
 
   .nav-brand {
@@ -136,7 +154,8 @@ html {
   }
 
   .nav-links a {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
 }
+
 
