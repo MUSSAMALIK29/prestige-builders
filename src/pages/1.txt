@@ -1,0 +1,6 @@
+    <div className="contact-details">
+          <p><strong>📍 Office:</strong> </p>
+          <p><strong>📞 Phone:</strong> (929)625-8465 </p>
+          <p><strong>✉️ Email:</strong> prestigebuildersgroupny@gmail.com</p>
+        </div>
+      </section>

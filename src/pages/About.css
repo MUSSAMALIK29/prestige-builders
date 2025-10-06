@@ -1,0 +1,121 @@
+/* Hero Section */
+.about-hero {
+  height: 60vh;
+  background: url('/public/img1.jpeg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  position: relative;
+}
+.about-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+}
+.about-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+}
+
+/* Mission & Vision */
+.mission-vision {
+  padding: 80px 20px;
+  background: #f9f4ef;
+  text-align: center;
+}
+.mv-container {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+.mv-card {
+  background: #fff;
+  padding: 30px 20px;
+  border-radius: 15px;
+  width: 300px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  text-align: center;
+}
+.mv-icon {
+  font-size: 40px;
+  color: #bfa67a;
+  margin-bottom: 15px;
+}
+
+/* Values */
+.values {
+  background: #111;
+  color: #fff;
+  padding: 80px 20px;
+  text-align: center;
+}
+.values-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 40px;
+}
+.value-card {
+  background: #1b1b1b;
+  padding: 30px 20px;
+  border-radius: 15px;
+  width: 200px;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+.value-icon {
+  font-size: 30px;
+  color: #bfa67a;
+  margin-bottom: 10px;
+}
+
+/* Team */
+.team {
+  padding: 80px 20px;
+  text-align: center;
+}
+.team-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 40px;
+}
+.team-card {
+  width: 250px;
+  background: #fff;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+
+/* CTA Section */
+.about-cta {
+  padding: 80px 20px;
+  text-align: center;
+  background: #f9f4ef;
+}
+.about-cta button {
+  background: #bfa67a;
+  color: #111;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.about-cta button:hover {
+  background: #a88b60;
+  transform: translateY(-2px);
+}
