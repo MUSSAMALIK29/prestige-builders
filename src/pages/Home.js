@@ -51,7 +51,7 @@ export default function Home() {
       title: "Home Renovation",
       images: ["/pimage1.jpg", "/pimage2.jpg", "/pimage3.jpg","pimage4.jpg"],
       description:
-        "Multi-family housing project with optimized space utilization and community areas.",
+        "Complete home renovation with modern design, smart layouts, and premium finishes.",
     },
     {
       title: "Complete Construction Work",
@@ -61,9 +61,9 @@ export default function Home() {
     },
     {
       title: "Luxury Home",
-      images: ["./img5.jpeg", "./img5b.jpeg", "./img5c.jpeg"],
+      images: ["/pimage9.jpg", "/pimage10.jpg", "/pimage11.jpg","pimage12.jpg"],
       description:
-        "Complete home renovation with modern design, smart layouts, and premium finishes.",
+        "Modern designs and quality finishes to transform your home beautifully.",
     },
   ];
 
