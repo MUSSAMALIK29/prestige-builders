@@ -61,7 +61,7 @@ export default function Home() {
     },
     {
       title: "Luxury Home",
-      images: ["/pimage9.jpg", "/pimage10.jpg", "/pimage11.jpg","pimage12.jpg"],
+      images: ["/img5.jpeg"],
       description:
         "Modern designs and quality finishes to transform your home beautifully.",
     },
