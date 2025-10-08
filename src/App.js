@@ -1,7 +1,13 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  useLocation,
+} from "react-router-dom";
 import Home from "./pages/Home";
-import About from "./pages/About"; // ✅ Import About page
+import About from "./pages/About";
 import "./App.css";
 
 // smooth scroll helper
@@ -22,7 +28,7 @@ function ScrollToSection({ sectionId }) {
 function AppContent() {
   const location = useLocation();
   const [sectionId, setSectionId] = React.useState(null);
-  const [menuOpen, setMenuOpen] = React.useState(false); // Hamburger toggle
+  const [menuOpen, setMenuOpen] = React.useState(false);
 
   React.useEffect(() => {
     const path = location.pathname;
@@ -31,7 +37,6 @@ function AppContent() {
     else if (path === "/contact") setSectionId("contact");
     else setSectionId("hero");
 
-    // Close menu on route change
     setMenuOpen(false);
   }, [location]);
 
@@ -43,16 +48,19 @@ function AppContent() {
       <nav className="navbar">
         <div className="nav-container">
           <Link to="/" className="nav-brand">
-  <img 
-    src="/favicon.png" 
-    alt="Prestige Builders" 
-    style={{ height: "50px",width:"50px", marginRight: "10px", marginBottom:"-1px"}} 
-  />
-   <span className="brand-text">Prestige Builders</span>
-</Link>
+            <img
+              src="/favicon.png"
+              alt="Prestige Builders"
+              style={{
+                height: "50px",
+                width: "50px",
+                marginRight: "10px",
+                marginBottom: "-1px",
+              }}
+            />
+            <span className="brand-text">Prestige Builders</span>
+          </Link>
 
-
-          {/* Hamburger */}
           <div
             className={`nav-toggle ${menuOpen ? "active" : ""}`}
             onClick={() => setMenuOpen(!menuOpen)}
@@ -62,7 +70,6 @@ function AppContent() {
             <span></span>
           </div>
 
-          {/* Nav Links */}
           <div className={`nav-links ${menuOpen ? "active" : ""}`}>
             <Link to="/">Home</Link>
             <Link to="/services">Services</Link>
@@ -73,7 +80,6 @@ function AppContent() {
         </div>
       </nav>
 
-      {/* Main content */}
       <main style={{ marginTop: "80px" }}>
         <Routes>
           <Route path="/" element={<Home />} />

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Home.css";
 import {
   Construction,
@@ -12,6 +12,34 @@ import {
   Handyman,
 } from "@mui/icons-material";
 
+// 🔹 Small reusable image slider for each project card
+function ImageSlider({ images }) {
+  const [index, setIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    let interval;
+    if (!isHovered) {
+      interval = setInterval(() => {
+        setIndex((prev) => (prev + 1) % images.length);
+      }, 3000);
+    }
+    return () => clearInterval(interval);
+  }, [images.length, isHovered]);
+
+  return (
+    <div
+      className="project-image"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      style={{
+        backgroundImage: `url(${images[index]})`,
+        transition: "background-image 1s ease-in-out",
+      }}
+    />
+  );
+}
+
 export default function Home() {
   const scrollTo = (id) => {
     const el = document.getElementById(id);
@@ -21,19 +49,19 @@ export default function Home() {
   const projects = [
     {
       title: "Home Renovation",
-      image: "./img3.jpeg",
+      images: ["./img3.jpeg", "./img3b.jpeg", "./img3c.jpeg", "./img3d.jpeg"],
       description:
         "Multi-family housing project with optimized space utilization and community areas.",
     },
     {
       title: "Office Complex",
-      image: "./img4.webp",
+      images: ["./img4.webp", "./img4b.webp", "./img4c.webp"],
       description:
         "A fully equipped office complex designed for productivity and elegance.",
     },
     {
       title: "Luxury Home",
-      image: "./img5.jpeg",
+      images: ["./img5.jpeg", "./img5b.jpeg", "./img5c.jpeg"],
       description:
         "Complete home renovation with modern design, smart layouts, and premium finishes.",
     },
@@ -41,7 +69,7 @@ export default function Home() {
 
   return (
     <div>
-      {/* Hero Section */}
+      {/* ===== HERO SECTION ===== */}
       <section id="hero" className="hero">
         <div className="hero-content">
           <h1>Building Dreams with Prestige</h1>
@@ -58,7 +86,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services Section */}
+      {/* ===== SERVICES SECTION ===== */}
       <section id="services" className="services">
         <h2>Our Services</h2>
         <p>From concept to completion, we deliver excellence in every project.</p>
@@ -84,7 +112,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
+      {/* ===== WHY CHOOSE US ===== */}
       <section className="why-choose-us">
         <h2>Why Choose Prestige Builders?</h2>
         <p>Experience. Quality. Trust. Everything you need under one roof.</p>
@@ -123,17 +151,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Projects Section */}
+      {/* ===== PROJECTS SECTION ===== */}
       <section id="projects" className="projects">
         <h2>Our Projects</h2>
         <p>Explore some of the amazing projects we've delivered.</p>
         <div className="project-container">
           {projects.map((project, i) => (
             <div className="project-card" key={i}>
-              <div
-                className="project-image"
-                style={{ backgroundImage: `url(${project.image})` }}
-              />
+              <ImageSlider images={project.images} />
               <h3>{project.title}</h3>
               <p>{project.description}</p>
             </div>
@@ -141,7 +166,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* ===== TESTIMONIALS ===== */}
       <section id="reviews" className="reviews">
         <h2>What Our Clients Say</h2>
         <p>Trusted by homeowners, developers, and businesses alike.</p>
@@ -173,7 +198,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contact Section */}
+      {/* ===== CONTACT SECTION ===== */}
       <section id="contact" className="contact">
         <h2>Contact Us</h2>
         <p>Let’s start planning your next project today.</p>
@@ -213,11 +238,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
+      {/* ===== FOOTER ===== */}
       <footer className="footer">
         <p>© {new Date().getFullYear()} Prestige Builders. All rights reserved.</p>
       </footer>
     </div>
   );
 }
-
