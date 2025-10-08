@@ -44,7 +44,7 @@ function AppContent() {
         <div className="nav-container">
           <Link to="/" className="nav-brand">
   <img 
-    src="/logo.png" 
+    src="/favicon.png" 
     alt="Prestige Builders" 
     style={{ height: "50px",width:"50px", marginRight: "10px", marginBottom:"-1px"}} 
   />
