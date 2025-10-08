@@ -55,7 +55,7 @@ export default function Home() {
     },
     {
       title: "Office Complex",
-      images: ["./img4.webp", "./img4b.webp", "./img4c.webp"],
+      images: ["./img1.jpeg", "./img3.jpeg"],
       description:
         "A fully equipped office complex designed for productivity and elegance.",
     },
