@@ -54,10 +54,10 @@ export default function Home() {
         "Multi-family housing project with optimized space utilization and community areas.",
     },
     {
-      title: "Office Complex",
+      title: "Complete Construction Work",
       images: ["/pimage5.jpg", "/pimage6.jpg", "/pimage7.jpg","pimage8.jpg"],
       description:
-        "A fully equipped office complex designed for productivity and elegance.",
+        "Delivering high-quality construction for stairs, walls, and other structural projects."
     },
     {
       title: "Luxury Home",
