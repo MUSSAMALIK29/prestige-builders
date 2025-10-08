@@ -46,7 +46,7 @@ function AppContent() {
   <img 
     src="/logo.png" 
     alt="Prestige Builders" 
-    style={{ height: "50px",width:"50px", marginRight: "10px", marginBottom:"-15px"}} 
+    style={{ height: "50px",width:"50px", marginRight: "10px", marginBottom:"-1px"}} 
   />
    <span className="brand-text">Prestige Builders</span>
 </Link>
