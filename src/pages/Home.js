@@ -49,7 +49,7 @@ export default function Home() {
   const projects = [
     {
       title: "Home Renovation",
-      images: ["/img3.jpeg", "/img4.webp", "/img5.jpeg"],
+      images: ["/pimage1.jpg", "/pimage2.jpg", "/pimage3.jpg","pimage4.jpg"],
       description:
         "Multi-family housing project with optimized space utilization and community areas.",
     },
